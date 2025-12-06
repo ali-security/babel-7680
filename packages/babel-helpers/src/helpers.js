@@ -1827,7 +1827,7 @@ helpers.wrapRegExp = helper("7.2.6")`
         return _super[Symbol.replace].call(
           this,
           str,
-          substitution.replace(/\\$<([^>]+)>/g, function(_, name) {
+          substitution.replace(/\\$<(?!\\$<)([^>]+)>/g, function(_, name) {
             return "$" + groups[name];
           })
         );
